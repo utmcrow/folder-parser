@@ -1,0 +1,8 @@
+source-path: '/Volumes/home/crow/Dropbox/test/'
+source-max-size: 1048576
+destination-path: '/Users/utmcrow/Pictures/moved/'
+rotate-by-max-size: True
+rotate-by-time: True
+enable-moving: False
+rotating-timer: 43200000 #2592000
+
