@@ -45,7 +45,7 @@ def main():
             log_process.info('{} : rotate by timer: {}'.format(file, timedelta(seconds=diff)))
             if config['enable-moving']:
                 move(config['source-path']+file,config['destination-path']+file)
-                log_move.info('{} : move to: {}'.format(file, timedelta(seconds=diff)))
+                log_move.info('{} : move to: {}'.format(file, config['destination-path']))
             continue
 
         total_size += size
