@@ -37,14 +37,13 @@ def main():
     for file in onlyfiles:
         (mode, ino, dev, nlink, uid, gid, size, atime, mtime, ctime) = os.stat(config['source-path']+file)
 
-        log_process.info('{} : last modified {} : size {}'.format(file,time.ctime(mtime),size))
-
         diff = past-os.path.getmtime(config['source-path']+file)
 
         if diff > config['rotating-timer']:
             log_process.info('{} : rotate by timer: {}'.format(file, timedelta(seconds=diff)))
             if config['enable-moving']:
                 move(config['source-path']+file,config['destination-path']+file)
+                log_process.info('{} : last modified {} : size {}'.format(file,time.ctime(mtime),size))
                 log_move.info('{} : move to: {}'.format(file, config['destination-path']))
             continue
 
@@ -55,6 +54,7 @@ def main():
         time_array[mtime].append(file)
 
     od = collections.OrderedDict(sorted(time_array.items()))
+    log_process.info('total size after time processing : {} MB'.format(int(size/1024)))
 
 
     for timetick,data in od.iteritems():
