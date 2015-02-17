@@ -26,10 +26,12 @@ handlers:
     filename: error.log
 
   process_handler:
-    class: logging.handlers.WatchedFileHandler
+    class: logging.handlers.RotatingFileHandler
     level: INFO
     formatter: precise
     filename: process.log
+    maxBytes: 1048576
+    backupCount: 5
 
   move_handler:
     class: logging.handlers.WatchedFileHandler
