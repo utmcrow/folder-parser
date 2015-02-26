@@ -54,7 +54,7 @@ def main():
         time_array[mtime].append(file)
 
     od = collections.OrderedDict(sorted(time_array.items()))
-    log_process.info('total size after time processing : {} MB'.format(int(size/1024)))
+    log_process.info('total size after time processing : {} MB'.format(int(total_size/1024)))
 
 
     for timetick,data in od.iteritems():
