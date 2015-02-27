@@ -23,7 +23,7 @@ def main():
     logging.config.dictConfig(yaml.load(open('logging.yml', 'r')))
 
     log_process = logging.getLogger('process')
-    log_error = logging.getLogger('error')
+    logging.getLogger('error')
     log_move = logging.getLogger('move')
 
     past = int(time.time())
