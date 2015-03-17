@@ -68,7 +68,7 @@ def main():
                         time.ctime(mtime),
                         size))
                 log_move.info(
-                    '{} : move to: {}'.format(
+                    '{} : timer rotate: move to: {}'.format(
                         file,
                         config['destination-path']))
             continue
@@ -93,9 +93,9 @@ def main():
                         config['destination-path'] +
                         file)
                     log_move.info(
-                        '{} : move to: {}'.format(
-                            file, timedelta(
-                                seconds=diff)))
+                        '{} : max size rotate: move to: {}'.format(
+                            file, 
+                            config['destination-path']))
                 total_size -= size_array[file]
                 log_process.info(
                     '{} : rotate by size: {} bytes left'.format(
